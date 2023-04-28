@@ -26,7 +26,7 @@ RUN pip3 install numpy
 RUN echo "alias spark-submit='/usr/local/spark/bin/spark-submit'" >> ~/.bashrc
 
 # Ensure spark log output is redirected to stderr
-RUN cp /usr/local/spark/conf/log4j.properties.template /usr/local/spark/conf/log4j.properties
+RUN cp /usr/local/spark/conf/log4j2.properties.template /usr/local/spark/conf/log4j2.properties
 
 # Set relevant environment variables to simplify usage of spark
 ENV SPARK_HOME /usr/local/spark
