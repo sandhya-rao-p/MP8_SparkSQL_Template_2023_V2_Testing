@@ -40,7 +40,7 @@ RUN chmod a+rwx -R /usr/local/spark/
 RUN if [ "$(uname -m)" = "x86_64" ]; then export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64; else export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-arm64; fi \
     && echo "export JAVA_HOME=$JAVA_HOME" >> /root/.bashrc
 
-RUN update-java-alternatives --set java-1.8.0-openjdk-arm64
+RUN if [ "$(uname -m)" = "x86_64" ]; then update-java-alternatives --set java-1.8.0-openjdk-amd64; else update-java-alternatives --set java-1.8.0-openjdk-arm64; fi
 
 # [Optional] Set working path to /cs498, and run the following command to start the container with code:
 # WORKDIR /cs498
